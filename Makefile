@@ -1,6 +1,6 @@
 NAME := cat
 CC := cc
-CFLAGS := -Wall -Wextra -Werror -trigraphs -pedantic
+CFLAGS := -Wall -Wextra -Werror -pedantic -std=c99
 
 .PHONY: all clean fclean re help
 
