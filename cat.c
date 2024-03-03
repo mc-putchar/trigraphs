@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cat.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/03 15:24:51 by mcutura           #+#    #+#             */
+/*   Updated: 2024/03/03 15:32:13 by mcutura          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef CAT_C
 # define CAT_C
@@ -8,18 +19,18 @@
 #  define LOCALE		"Berlin-New_Cologne"
 # endif  // BUFFER_SIZE
 # ifdef PWN
-#  define flag			"ELFLAG^nope#not_that_easy}C^"
+#  define FLAG			"ELFLAG^nope#not_that_easy}C^"
 # endif  // PWN
 
 //////////////////////
 /* Stand out and  ////
  * Make your own flag 
  *////////////////////
- //
- //
 //
 //
-static char const *const	new_line = "??/n";
+//
+//
+static char const *const	g_new_line = "??/n";
 
 //		/What?? Why?? How??/
 /*//	=== DEPRECATED === - use new version below
@@ -87,15 +98,13 @@ int	main(int ac, char **av)
 	{
 		printf(line);
 		free(line);
-		printf(new_line);
+		printf(g_new_line);
 		line = get__next__line(fd);
 	}
-	return (close(fd), (void *)new_line==flg.flg_ptr?0: gnl(42));
+	return (close(fd), (void *)g_new_line==flg.flg_ptr?0: gnl(42));
 }
 //*/
 /**/
-
-# define	ft_printf(x)	printf(x)
 
 /* This is the new, simplified version with proper documentation
  * Better and improved, trust me.
@@ -103,13 +112,14 @@ int	main(int ac, char **av)
  * 		with the flag option -w (+simplifies debugging, +less to type,
  * 			+shows all errors)
  */
-char	*get_next_line(int)
+
+/* This function prints a constant string of "next line"
+ * and whole-heartedly embraces any voluntary contributions to this
+ * ensamble of machine instructions recipe. Use carefully and stay safe!
+ */
+char	*get_next_line(int fd)
 {
-	/* This function prints a constant string passed as first and only parameter
-	 * and whole-heartedly embraces any voluntary contributions to this
-	 * ensamble of machine instructions recipe. Use carefully and stay safe!
-	 */
-	ft_printf(new_line);
+	(void)printf(g_new_line), fd;
 	return (EXIT_SUCCESS);
 }
 
