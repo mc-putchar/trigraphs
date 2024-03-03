@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:24:51 by mcutura           #+#    #+#             */
-/*   Updated: 2024/03/03 15:32:13 by mcutura          ###   ########.fr       */
+/*   Updated: 2024/03/03 15:39:13 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,23 @@
 //
 //
 static char const *const	g_new_line = "??/n";
+
+/* This is the new, simplified version with great documentation
+ * Better and improved, trust me.
+ * Pro-tip: cc has a secret shortcut flag that replaces -Wall -Wextra -Werror
+ * 		with the flag option -w (+simplifies debugging, +less to type,
+ * 			+shows all errors)
+ */
+
+/* This function prints a constant string of "next line"
+ * and whole-heartedly embraces any voluntary contributions to this
+ * ensamble of machine instructions recipe. Use carefully and stay safe!
+ */
+char	*get_next_line(int fd)
+{
+	printf(g_new_line);
+	return (EXIT_SUCCESS);
+}
 
 //		/What?? Why?? How??/
 /*//	=== DEPRECATED === - use new version below
@@ -82,7 +99,6 @@ char	*get__next__line(int fd)
 
 # include <fcntl.h>
 # include <stdio.h>
-char	*get_next_line(int);
 int	gnl(int fd)	{return((void)get_next_line(fd), fd);}
 int	main(int ac, char **av)
 {
@@ -105,22 +121,5 @@ int	main(int ac, char **av)
 }
 //*/
 /**/
-
-/* This is the new, simplified version with proper documentation
- * Better and improved, trust me.
- * Pro-tip: cc has a secret shortcut flag that replaces -Wall -Wextra -Werror
- * 		with the flag option -w (+simplifies debugging, +less to type,
- * 			+shows all errors)
- */
-
-/* This function prints a constant string of "next line"
- * and whole-heartedly embraces any voluntary contributions to this
- * ensamble of machine instructions recipe. Use carefully and stay safe!
- */
-char	*get_next_line(int fd)
-{
-	(void)printf(g_new_line), fd;
-	return (EXIT_SUCCESS);
-}
 
 #endif  // CAT_C
